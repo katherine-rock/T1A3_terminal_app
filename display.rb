@@ -1,7 +1,8 @@
     require './actionitem.rb'
+    require './help.rb'
     
     def welcome
-        puts "Things To Do"
+        puts "--- Things To Do ---"
     end
 
     def menu
@@ -10,17 +11,10 @@
         puts options
     end
 
-    # def display
-    #     puts "Action Item ... Category ... Priority"
-    #     puts "#{action} ... #{category} ... #{priority}"
-    # end
-
     def input
         option = gets.strip.downcase
             case option 
             when /^s(how all)*/
-                # puts "Action Item ... Category ... Priority"
-                # puts "#{action} ... #{category} ... #{priority}"
             when /^a(dd)*/
                 puts "What is the action? "
                 action = gets.strip.downcase
@@ -36,6 +30,8 @@
                 # RecipesController::create
             when /^d(elete)*/
                 # RecipesController::destroy param
+            when /^h(elp)*/
+                help
             when /^q(uit)*/
                 exit
             end
