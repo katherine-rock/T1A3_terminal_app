@@ -8,4 +8,9 @@ class ActionItem
         @priority = priority
     end
 
+    def self.display
+        headers = ["Action", "Category", "Priority"]
+        items = [@action, @category, @priority]
+    end
+
 end

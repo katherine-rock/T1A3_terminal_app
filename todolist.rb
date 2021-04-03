@@ -2,6 +2,7 @@ require './display.rb'
 require './routes.rb'
 
 welcome
-menu
-input
-
+loop do 
+    menu
+    input
+end
