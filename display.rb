@@ -10,25 +10,32 @@
         puts options
     end
 
+    # def display
+    #     puts "Action Item ... Category ... Priority"
+    #     puts "#{action} ... #{category} ... #{priority}"
+    # end
+
     def input
         option = gets.strip.downcase
             case option 
             when /^d(isplay all)*/
-                # RecipesController::index
+                puts "Action Item ... Category ... Priority"
+                puts "#{action} ... #{category} ... #{priority}"
             when /^a(dd)*/
                 puts "What is the action? "
                 action = gets.strip.downcase
                 puts "What is the category? (optional) "
                 category = gets.strip.downcase
                 puts "What is the priority? (optional - low, medium or high) "
-                category = gets.strip.downcase
+                priority = gets.strip.downcase
                 ActionItem.new(action)
-
-                # how to make parameters optional
+                puts "The following action has been added: "
+                puts "Action: #{action}, Category: #{category}, Priority: #{priority}"
             when /^n(ew)*/
                 # RecipesController::create
             when /^d(elete)*/
                 # RecipesController::destroy param
             end
     end
+
 

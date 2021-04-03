@@ -4,3 +4,4 @@ require './routes.rb'
 welcome
 menu
 input
+
