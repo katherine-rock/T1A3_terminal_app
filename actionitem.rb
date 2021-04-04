@@ -1,16 +1,16 @@
-class ActionItem
+class Action
     attr_accessor :id, :action, :category, :priority
 
-    def initialize(action)
-        # @id = ActionItem.length + 1
+    def initialize(action,category,priority)
+        # @id = Action.length + 1
         @action = action
         @category = category
         @priority = priority
     end
 
-    def self.display
-        headers = ["Action", "Category", "Priority"]
-        items = [@action, @category, @priority]
+    def to_s
+        return "ID: #{@id} | Action Item: #{@action} | Category: #{@category} | Priority: #{@priority} "
     end
 
 end
+
