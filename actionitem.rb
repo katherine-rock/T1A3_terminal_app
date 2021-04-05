@@ -9,7 +9,7 @@ class Action
     end
 
     def to_s
-        return "ID: #{@id} | Action Item: #{@action} | Category: #{@category} | Priority: #{@priority} "
+        return "ID: #{@id} | Action Item: #{@action.capitalize} | Category: #{@category.capitalize} | Priority: #{@priority.capitalize} "
     end
 
 end
