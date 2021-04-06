@@ -1,9 +1,10 @@
     require './help.rb'
     require './input.rb'
+    require 'colorize'
     
     def welcome
         puts
-        puts "--- Things To Do ---"
+        puts "--- Things To Do ---".blue
     end
 
     def menu
@@ -28,7 +29,7 @@
             when /^q(uit)*/
                 exit
             else
-                puts "Sorry, that response is not valid. Please try again."
+                puts "Sorry, that response is not valid. Please try again.".red
             end
     end
 
