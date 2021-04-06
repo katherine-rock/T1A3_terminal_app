@@ -1,3 +1,5 @@
+require 'tty-table'
+
 class Action
     attr_accessor :id, :action, :category, :priority
 
@@ -21,7 +23,9 @@ class Action
 
     def self.display
         puts
-        p @@todolist
+        table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], @@todolist)
+
+        puts table.render(:ascii)
     end
     # I need to initialise class variables for action, category and priority
 
