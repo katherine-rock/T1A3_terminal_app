@@ -1,4 +1,5 @@
 require 'tty-table'
+require 'colorize'
 
 class Action
     attr_accessor :id, :action, :category, :priority
@@ -22,10 +23,15 @@ class Action
     end
 
     def self.display
+        if  @@number_actions != 0
         puts
         table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], @@todolist)
 
         puts table.render(:ascii)
+        
+        else
+            puts "There are no current action items".yellow
+        end
     end
     # I need to initialise class variables for action, category and priority
 
