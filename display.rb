@@ -4,13 +4,14 @@
     
     def welcome
         puts
-        puts "--- Things To Do ---".blue
+        puts "--- Things To Do ---".black.on_white
     end
 
     def menu
         puts "Choose from the following options: "
         options = ["-Show all","-Choose a category", "-Add new action item", "-Edit action item", "-Delete an action item", "-Help", "-Quit"]
         puts options
+        puts "Enter your choice".cyan
     end
 
     def routes
@@ -20,10 +21,15 @@
                 puts Action.display
             when /^a(dd)*/
                 input
-            when /^n(ew)*/
-                # RecipesController::create
+            when /^c(hoose)*/
+                # pending
+                unavailable
             when /^d(elete)*/
-                # RecipesController::destroy param
+                # pending
+                unavailable
+            when /^e(dit)*/
+                # pending
+                unavailable
             when /^h(elp)*/
                 help
             when /^q(uit)*/
@@ -31,6 +37,10 @@
             else
                 puts "Sorry, that response is not valid. Please try again.".red
             end
+    end
+
+    def unavailable
+        puts "Sorry, that function is not available yet. Please choose another option.".yellow
     end
 
 

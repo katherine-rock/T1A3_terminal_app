@@ -33,7 +33,6 @@ class Action
             puts "There are no current action items".yellow
         end
     end
-    # I need to initialise class variables for action, category and priority
 
 end
 
