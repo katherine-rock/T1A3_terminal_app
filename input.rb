@@ -1,6 +1,7 @@
 require './actionitem.rb'
 
 def input
+    puts
     puts "What is the action? "
     action = gets.strip.downcase
     puts "What is the category? (optional) "
@@ -10,4 +11,5 @@ def input
     item = Action.new(action,category,priority)
     puts "The following action has been added: "
     puts item
+    puts 
 end

@@ -2,6 +2,7 @@
     require './input.rb'
     
     def welcome
+        puts
         puts "--- Things To Do ---"
     end
 
@@ -15,6 +16,7 @@
         option = gets.strip.downcase
             case option 
             when /^s(how all)*/
+                puts Action.display
             when /^a(dd)*/
                 input
             when /^n(ew)*/
