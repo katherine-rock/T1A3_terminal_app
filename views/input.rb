@@ -1,5 +1,3 @@
-require '../models/actionitem.rb'
-
 #this is the original
 def input
     puts
@@ -9,7 +7,7 @@ def input
     category = gets.strip.downcase
     puts "What is the priority? (optional - low, medium or high) "
     priority = gets.strip.downcase
-    item = Action.new(action,category,priority)
+    item = ActionItem.new(action,category,priority)
     puts
     puts "The following action has been added: "
     puts item

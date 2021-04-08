@@ -1,3 +1,5 @@
+require_relative '../views/input.rb'
+
 def routes
     option = gets.strip.downcase
         case option 
