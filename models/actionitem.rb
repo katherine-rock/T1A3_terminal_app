@@ -32,20 +32,20 @@ class ActionItem
         end
     end
 
-    # def self.sort_category(category)
-    #     puts "Please choose a category"
-    #     category = gets.strip.downcase
-    #     @@todolist.each do |item|
-    #         if item.category == category
-    #             return actionitem
-    #         end
-    #     end
-    #     return nil
-    # end
     def self.sub_array
+        if  @@number_actions != 0
         puts "Please choose a category"
         target = gets.strip.downcase
         sub_array = @@todolist.select { |row| row.include?(target) }
+
+        puts
+        table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], sub_array)
+
+        puts table.render(:ascii)
+
+        else
+            puts "Sorry. There are no action items to choose from.".yellow
+        end
     end
 
 end
