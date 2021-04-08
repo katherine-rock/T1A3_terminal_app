@@ -2,7 +2,7 @@ require 'tty-table'
 require 'colorize'
 
 class ActionItem
-    attr_accessor :id, :action, :category, :priority
+    attr_accessor :id, :action, :category, :priority, :sub_array
 
     @@number_actions = 0
     @@todolist = []
@@ -20,7 +20,6 @@ class ActionItem
         return "ID: #{@id} | Action Item: #{@action.capitalize} | Category: #{@category.capitalize} | Priority: #{@priority.capitalize} "
     end
 
-    # This works. Has also been copied to 
     def self.display
         if  @@number_actions != 0
         puts
@@ -33,20 +32,21 @@ class ActionItem
         end
     end
 
-    # def self.find
-    #     puts "What ID are you looking for?"
-    #     item_found = gets.strip
-    #     @@todolist.index { |element| element == item_found }
-    #     puts "This is the item you are about to update: "
-    #     "ID: #{@id} | Action Item: #{@action} | Category: #{@category} | Priority: #{@priority} "
+    # def self.sort_category(category)
+    #     puts "Please choose a category"
+    #     category = gets.strip.downcase
+    #     @@todolist.each do |item|
+    #         if item.category == category
+    #             return actionitem
+    #         end
     #     end
+    #     return nil
     # end
-
-    # this is Michael's code: 
-    # def self.find(id)
-    #     return unless id 
-    #     all.detect { |resource| resource.id == id.to_i }
-    # end
+    def self.sub_array
+        puts "Please choose a category"
+        target = gets.strip.downcase
+        sub_array = @@todolist.select { |row| row.include?(target) }
+    end
 
 end
 

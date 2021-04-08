@@ -14,18 +14,12 @@ class ItemList
         @action_items << actionitem
     end
 
-    def get_actions
-        return @action_items
+    def self.get_actions
+        puts @action_items
     end
 
-    # models video 11:00
-    def sort_category(category)
-        @action_items.each do |item|
-            if item.category == category
-                return actionitem
-            end
-        end
-        return nil
+    def to_s
+        return "ID: #{@id} | Action Item: #{@action.capitalize} | Category: #{@category.capitalize} | Priority: #{@priority.capitalize} "
     end
 
     # input validation also belongs in model
