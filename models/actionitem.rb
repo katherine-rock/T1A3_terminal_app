@@ -5,12 +5,15 @@ class ActionItem
     attr_accessor :id, :action, :category, :priority
 
     @@number_actions = 0
+    @@todolist = []
 
     def initialize(action,category,priority)
         @action = action
         @category = category
         @priority = priority
         @@number_actions += 1
+        @id = @@number_actions
+        @@todolist << ([@id,@action,@category,@priority])
     end
 
     def to_s
