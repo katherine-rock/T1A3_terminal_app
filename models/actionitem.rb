@@ -38,10 +38,15 @@ class ActionItem
         target = gets.strip.downcase
         sub_array = @@todolist.select { |row| row.include?(target) }
 
+            if sub_array.empty? == false
         puts
         table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], sub_array)
-
+        puts "Here are all the action items from the #{target} category: "
         puts table.render(:ascii)
+
+            else
+                puts "Sorry. There are no action items that match that category.".yellow
+            end
 
         else
             puts "Sorry. There are no action items to choose from.".yellow
