@@ -18,7 +18,7 @@ def routes
             unavailable
         when /^t(est)*/
             test
-            puts ActionItem.sub_array
+            ActionItem.edit
         when /^h(elp)*/
             help
         when /^q(uit)*/
@@ -26,5 +26,6 @@ def routes
             exit
         else
             puts "Sorry, that response is not valid. Please try again.".red
+            puts
         end
 end
