@@ -12,20 +12,17 @@ def routes
             puts ActionItem.sub_array
         when /^d(elete)*/
             # pending
-            unavailable
+            error_unavailable
         when /^e(dit)*/
-            # pending
-            unavailable
+            ActionItem.edit
         when /^t(est)*/
             test
-            ActionItem.edit
         when /^h(elp)*/
             help
         when /^q(uit)*/
             puts "Goodbye!"
             exit
         else
-            puts "Sorry, that response is not valid. Please try again.".red
-            puts
+            error_invalid
         end
 end
