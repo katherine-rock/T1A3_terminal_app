@@ -18,7 +18,7 @@ class ActionItem
         @category = category
         @priority = priority
         @@number_actions += 1
-        @id = @@todolist.length+1
+        @id = @@todolist.sort.max[-4] + 1
         @@todolist << ([@id,@action,@category,@priority])
     end
 
@@ -29,7 +29,7 @@ class ActionItem
     def self.display
         if  @@todolist.empty? == false
         puts
-        table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], @@todolist)
+        table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], @@todolist.sort)
 
         puts table.render(:ascii)
         
@@ -111,6 +111,10 @@ class ActionItem
 
     def self.save
         File.open("todolist.yml", 'w') { |file| file.write(@@todolist.to_yaml) }
+    end
+
+    def self.max
+        puts @@todolist.sort.max[-4]
     end
 
 end
