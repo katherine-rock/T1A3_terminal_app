@@ -1,5 +1,6 @@
 require 'tty-table'
 require 'colorize'
+require 'yaml'
 
 class ActionItem
     attr_accessor :id, :action, :category, :priority, :sub_array
@@ -102,6 +103,14 @@ class ActionItem
                 error_no_action_items 
             end
     end
+
+def self.load
+    @@todolist = YAML.load(File.read("todolist.yml"))
+end
+
+def self.save
+    File.open("todolist.yml", 'w') { |file| file.write(@@todolist.to_yaml) }
+end
 
 end
 

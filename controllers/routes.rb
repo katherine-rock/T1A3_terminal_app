@@ -19,6 +19,7 @@ def routes
         when /^h(elp)*/
             help
         when /^q(uit)*/
+            ActionItem.save
             puts "--------"
             puts "Goodbye!"
             puts "--------"
