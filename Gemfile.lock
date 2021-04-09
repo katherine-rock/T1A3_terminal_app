@@ -10,6 +10,7 @@ GEM
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
     tty-color (0.6.0)
+    tty-link (0.1.1)
     tty-screen (0.8.1)
     tty-table (0.12.0)
       pastel (~> 0.8)
@@ -23,6 +24,7 @@ PLATFORMS
 
 DEPENDENCIES
   colorize (~> 0.8.1)
+  tty-link
   tty-table
 
 BUNDLED WITH
