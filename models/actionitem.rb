@@ -71,6 +71,9 @@ class ActionItem
                     sub_array.replace([targetID,update_action,update_category,update_priority])
                     @@todolist.delete_at(targetID-1)
                     @@todolist.insert(targetID-1, sub_array) 
+                puts "Here is your updated action item:"
+                puts "ID: #{targetID} | Action Item: #{update_action} | Category: #{update_category} | Priority: #{update_priority}"
+                puts
             else
                 puts "Sorry. There are no action items that match that ID number.".yellow
             end
