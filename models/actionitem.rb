@@ -94,7 +94,8 @@ class ActionItem
                     puts "The action item has been deleted."
                     puts 
                 else
-                    puts "Sorry. There are no action items with that ID. Please try again."
+                    puts "Sorry. There are no action items with that ID. Please try again.".yellow
+                    puts
                 end
 
             else

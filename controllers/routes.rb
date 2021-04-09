@@ -11,17 +11,17 @@ def routes
         when /^c(hoose)*/
             puts ActionItem.sub_array
         when /^d(elete)*/
-            # pending
-            error_unavailable
+            ActionItem.delete
         when /^e(dit)*/
             ActionItem.edit
         when /^t(est)*/
             test
-            ActionItem.delete
         when /^h(elp)*/
             help
         when /^q(uit)*/
+            puts "--------"
             puts "Goodbye!"
+            puts "--------"
             exit
         else
             error_invalid
