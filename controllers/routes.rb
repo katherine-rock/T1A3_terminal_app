@@ -15,7 +15,7 @@ def routes
         when /^e(dit)*/
             ActionItem.edit
         when /^t(est)*/
-            test
+            # test
         when /^h(elp)*/
             help
         when /^q(uit)*/
@@ -25,6 +25,6 @@ def routes
             puts "--------"
             exit
         else
-            error_invalid
+            Errors.error_invalid
         end
 end

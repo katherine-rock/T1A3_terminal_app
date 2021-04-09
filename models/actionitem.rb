@@ -2,18 +2,23 @@ require 'tty-table'
 require 'colorize'
 require 'yaml'
 
+
 class ActionItem
-    attr_accessor :id, :action, :category, :priority, :sub_array
+    attr_accessor :id, :action, :category, :priority, :sub_array, :todolist, :number_actions
 
     @@number_actions = 0
-    @@todolist = []
+    @@todolist ||= begin
+        YAML.load(File.read("todolist.yml"))
+            rescue
+                []
+            end
 
     def initialize(action,category,priority)
         @action = action
         @category = category
         @priority = priority
         @@number_actions += 1
-        @id = @@number_actions
+        @id = @@todolist.length+1
         @@todolist << ([@id,@action,@category,@priority])
     end
 
@@ -22,7 +27,7 @@ class ActionItem
     end
 
     def self.display
-        if  @@number_actions != 0
+        if  @@todolist.empty? == false
         puts
         table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], @@todolist)
 
@@ -35,7 +40,7 @@ class ActionItem
     end
 
     def self.sub_array
-        if  @@number_actions != 0
+        if @@todolist.empty? == false
         puts "Please choose a category"
         target = gets.strip.downcase
         sub_array = @@todolist.select { |row| row.include?(target) }
@@ -57,7 +62,7 @@ class ActionItem
     end
 
     def self.edit
-        if  @@number_actions != 0
+        if @@todolist.empty? == false
         puts "Please enter the ID of the action item you want to edit:"
         targetID = gets.strip.downcase.to_i
         sub_array = @@todolist.select { |row| row.include?(targetID) }
@@ -80,12 +85,12 @@ class ActionItem
             end
 
         else
-            error_no_action_items
+            Errors.error_no_action_items
         end
     end
 
     def self.delete
-        if  @@number_actions != 0
+        if @@todolist.empty? == false
             puts "Please enter the ID of the action item you want to delete:"
             targetID = gets.strip.to_i
             sub_array = @@todolist.select { |row| row.include?(targetID) }
@@ -100,17 +105,13 @@ class ActionItem
                 end
 
             else
-                error_no_action_items 
+                Errors.error_no_action_items 
             end
     end
 
-def self.load
-    @@todolist = YAML.load(File.read("todolist.yml"))
-end
-
-def self.save
-    File.open("todolist.yml", 'w') { |file| file.write(@@todolist.to_yaml) }
-end
+    def self.save
+        File.open("todolist.yml", 'w') { |file| file.write(@@todolist.to_yaml) }
+    end
 
 end
 
