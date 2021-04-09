@@ -70,7 +70,7 @@ class ActionItem
                 update_priority = gets.strip
                     sub_array.replace([targetID,update_action,update_category,update_priority])
                     @@todolist.delete_at(targetID-1)
-                    @@todolist << sub_array
+                    @@todolist.insert(targetID-1, sub_array) 
             else
                 puts "Sorry. There are no action items that match that ID number.".yellow
             end
