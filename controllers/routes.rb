@@ -17,6 +17,7 @@ def routes
             ActionItem.edit
         when /^t(est)*/
             test
+            ActionItem.delete
         when /^h(elp)*/
             help
         when /^q(uit)*/

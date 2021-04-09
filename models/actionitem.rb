@@ -83,6 +83,24 @@ class ActionItem
         end
     end
 
+    def self.delete
+        if  @@number_actions != 0
+            puts "Please enter the ID of the action item you want to delete:"
+            targetID = gets.strip.to_i
+            sub_array = @@todolist.select { |row| row.include?(targetID) }
+    
+                if sub_array.empty? == false
+                    @@todolist.delete_at(targetID-1)
+                    puts "The action item has been deleted."
+                    puts 
+                else
+                    puts "Sorry. There are no action items with that ID. Please try again."
+                end
+
+            else
+                error_no_action_items 
+            end
+    end
 
 end
 

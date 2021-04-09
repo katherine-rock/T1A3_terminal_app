@@ -1,15 +1,15 @@
 #this is the original
 def input
     puts
-    puts "What is the action? "
+    puts "What is the action?"
     action = gets.strip.downcase
-    puts "What is the category? (optional) "
+    puts "What is the category?"
     category = gets.strip.downcase
-    puts "What is the priority? (optional - low, medium or high) "
+    puts "What is the priority?"
     priority = gets.strip.downcase
     item = ActionItem.new(action,category,priority)
     puts
-    puts "The following action has been added: "
+    puts "The following action has been added:"
     puts item
     puts 
 end
