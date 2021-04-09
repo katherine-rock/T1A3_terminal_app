@@ -4,9 +4,9 @@ require 'yaml'
 
 
 class ActionItem
-    attr_accessor :id, :action, :category, :priority, :sub_array, :todolist, :number_actions
+    attr_accessor :id, :action, :category, :priority, :sub_array, :todolist, :actions_created
 
-    @@number_actions = 0
+    @@actions_created = 0
     @@todolist ||= begin
         YAML.load(File.read("todolist.yml"))
             rescue
@@ -17,9 +17,9 @@ class ActionItem
         @action = action
         @category = category
         @priority = priority
-        @@number_actions += 1
-        @id = @@todolist.sort.max[-4] + 1
+        @id = @@actions_created + 1
         @@todolist << ([@id,@action,@category,@priority])
+        @@actions_created += 1
     end
 
     def to_s
@@ -91,28 +91,22 @@ class ActionItem
 
     def self.delete
         if @@todolist.empty? == false
+            puts
             puts "Please enter the ID of the action item you want to delete:"
             targetID = gets.strip.to_i
-            sub_array = @@todolist.select { |row| row.include?(targetID) }
-    
-                if sub_array.empty? == false
-                    @@todolist.delete_at(targetID-1)
-                    puts "The action item has been deleted."
-                    puts 
-                else
-                    puts "Sorry. There are no action items with that ID. Please try again.".yellow
-                    puts
-                end
-
-            else
-                Errors.error_no_action_items 
-            end
+            @@todolist.delete_if { |row| row.include?(targetID) }
+            puts "The item has been deleted."
+            puts
+        else
+            Errors.error_no_action_items 
+        end
     end
 
     def self.save
         File.open("todolist.yml", 'w') { |file| file.write(@@todolist.to_yaml) }
     end
 
+#Keep this here for now until I have finalised the ID issue.
     def self.max
         puts @@todolist.sort.max[-4]
     end

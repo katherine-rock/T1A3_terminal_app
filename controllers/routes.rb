@@ -17,7 +17,7 @@ def routes
         when /^t(est)*/
             # test
             3.times {puts "--Testing--   "}
-            puts ActionItem.max
+            ActionItem.test
         when /^h(elp)*/
             help
         when /^q(uit)*/
