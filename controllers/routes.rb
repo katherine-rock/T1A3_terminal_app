@@ -10,15 +10,11 @@ def routes
         when /^a(dd)*/
             input
         when /^c(hoose)*/
-            puts ActionItem.sub_array
+            ActionItem.sub_array
         when /^d(elete)*/
             ActionItem.delete
         when /^e(dit)*/
             ActionItem.edit
-        when /^t(est)*/
-            # test
-            3.times {puts "--Testing--   "}
-            ActionItem.test
         when /^h(elp)*/
             help
         when /^q(uit)*/
