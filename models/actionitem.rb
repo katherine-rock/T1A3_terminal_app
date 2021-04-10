@@ -100,9 +100,14 @@ class ActionItem
             puts
             puts "Please enter the ID of the action item you want to delete:"
             targetID = gets.strip.to_i
+                if @@todolist.flatten.include?(targetID) == true
+                    puts "The action item has been deleted."
+                    puts
+                else 
+                    puts "There is no action item with that ID number. Please try again."
+                    puts
+                end 
             @@todolist.delete_if { |row| row.include?(targetID) }
-            puts "The item has been deleted."
-            puts
         else
             Errors.error_no_action_items 
         end
@@ -113,9 +118,13 @@ class ActionItem
         File.open("actionscreated.yml", 'w') { |file| file.write(@@actions_created.to_yaml) }
     end
 
-#Keep this here for now until I have finalised the ID issue.
-    def self.max
-        puts @@todolist.sort.max[-4]
+    def self.test
+        puts "What is the target ID?"
+        targetID = gets.strip.to_i
+        p @@todolist.include?(targetID)
+        p @@todolist
+        p @@todolist.flatten
+        p @@todolist.flatten.include?(targetID)
     end
 
 end
