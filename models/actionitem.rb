@@ -26,6 +26,8 @@ class ActionItem
         @id = @@actions_created.length + 1
         @@todolist << ([@id,@action,@category,@priority])
         @@actions_created << ([@id])
+    rescue
+        Errors.major
     end
 
     def to_s
@@ -40,8 +42,12 @@ class ActionItem
         puts table.render(:ascii)
         
         else
-            Errors.error_no_action_items
+            puts
+            puts "There are no current action items".yellow
         end
+
+    rescue
+        Errors.major
     end
 
     def self.sub_array
@@ -49,18 +55,24 @@ class ActionItem
         puts "Please enter a category or press enter to show all action items without a category"
         target = gets.strip.downcase
         sub_array = @@todolist.select { |row| row.include?(target) }
+
             if sub_array.empty? == false
         puts
         table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], sub_array)
         puts "Here are the action items from the #{target} category: "
         puts table.render(:ascii)
-        puts
+
             else
-                Errors.no_category
+                puts "Sorry. There are no action items that match that category.".yellow
             end
+
         else
-            Errors.error_no_action_items
+            puts
+            puts "Sorry. There are no action items to choose from.".yellow
         end
+
+    rescue
+        Errors.major
     end
 
     def self.edit
@@ -73,7 +85,7 @@ class ActionItem
                 puts "Please enter the updated action item:"
                 update_action = gets.strip
                 puts "Please enter the updated category:"
-                update_category = gets.strip.downcase
+                update_category = gets.strip
                 puts "Please enter the updated priority:"
                 update_priority = gets.strip
                     sub_array.replace([targetID,update_action,update_category,update_priority])
@@ -83,12 +95,14 @@ class ActionItem
                 puts "ID: #{targetID} | Action Item: #{update_action} | Category: #{update_category} | Priority: #{update_priority}"
                 puts
             else
-                Errors.id_not_found
+                puts "Sorry. There are no action items that match that ID number.".yellow
             end
 
         else
             Errors.error_no_action_items
         end
+    rescue
+        Errors.major
     end
 
     def self.delete
@@ -100,17 +114,29 @@ class ActionItem
                     puts "The action item has been deleted."
                     puts
                 else 
-                    Errors.id_not_found
+                    puts "There is no action item with that ID number. Please try again."
+                    puts
                 end 
             @@todolist.delete_if { |row| row.include?(targetID) }
         else
             Errors.error_no_action_items 
         end
+    rescue
+        Errors.major
     end
 
     def self.save
         File.open("todolist.yml", 'w') { |file| file.write(@@todolist.to_yaml) }
         File.open("actionscreated.yml", 'w') { |file| file.write(@@actions_created.to_yaml) }
+    end
+
+    def self.test
+        puts "What is the target ID?"
+        targetID = gets.strip.to_i
+        p @@todolist.include?(targetID)
+        p @@todolist
+        p @@todolist.flatten
+        p @@todolist.flatten.include?(targetID)
     end
 
 end
