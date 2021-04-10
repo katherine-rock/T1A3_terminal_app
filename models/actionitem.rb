@@ -7,7 +7,12 @@ require 'pastel'
 class ActionItem
     attr_accessor :id, :action, :category, :priority, :sub_array, :todolist, :actions_created
 
-    @@actions_created = 0
+    @@actions_created ||= begin
+    YAML.load(File.read("actionscreated.yml"))
+        rescue
+            []
+        end
+
     @@todolist ||= begin
         YAML.load(File.read("todolist.yml"))
             rescue
@@ -18,9 +23,9 @@ class ActionItem
         @action = action
         @category = category
         @priority = priority
-        @id = @@actions_created + 1
+        @id = @@actions_created.length + 1
         @@todolist << ([@id,@action,@category,@priority])
-        @@actions_created += 1
+        @@actions_created << ([@id])
     end
 
     def to_s
@@ -105,6 +110,7 @@ class ActionItem
 
     def self.save
         File.open("todolist.yml", 'w') { |file| file.write(@@todolist.to_yaml) }
+        File.open("actionscreated.yml", 'w') { |file| file.write(@@actions_created.to_yaml) }
     end
 
 #Keep this here for now until I have finalised the ID issue.

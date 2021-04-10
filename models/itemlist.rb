@@ -11,6 +11,12 @@ class ItemList
             rescue
                 []
             end
+        @@actions_created ||= begin
+        YAML.load(File.read("actionscreated.yml"))
+            rescue
+                []
+            end
+
     end
 
     def to_s
