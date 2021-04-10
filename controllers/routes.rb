@@ -1,5 +1,6 @@
 require_relative '../views/input.rb'
 require_relative '../models/itemlist.rb'
+require_relative '../views/goodbye.rb'
 
 def routes
     option = gets.strip.downcase
@@ -22,9 +23,7 @@ def routes
             help
         when /^q(uit)*/
             ActionItem.save
-            puts "--------"
-            puts "Goodbye!"
-            puts "--------"
+            goodbye
             exit
         else
             Errors.error_invalid

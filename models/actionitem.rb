@@ -47,14 +47,14 @@ class ActionItem
 
     def self.sub_array
         if @@todolist.empty? == false
-        puts "Please choose a category"
+        puts "Please enter a category or press enter to show all action items without a category"
         target = gets.strip.downcase
         sub_array = @@todolist.select { |row| row.include?(target) }
 
             if sub_array.empty? == false
         puts
         table = TTY::Table.new(["  ID  ","  Action Item  ","  Category  ","  Priority  "], sub_array)
-        puts "Here are all the action items from the #{target} category: "
+        puts "Here are the action items from the #{target} category: "
         puts table.render(:ascii)
 
             else
