@@ -24,6 +24,7 @@ PLATFORMS
 
 DEPENDENCIES
   colorize (~> 0.8.1)
+  pastel
   tty-link
   tty-table
 

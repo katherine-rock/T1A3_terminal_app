@@ -11,3 +11,5 @@ gem "colorize", "~> 0.8.1"
 gem "tty-table"
 
 gem 'tty-link'
+
+gem "pastel"

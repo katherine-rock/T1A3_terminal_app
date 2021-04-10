@@ -2,6 +2,7 @@ require 'tty-table'
 require 'colorize'
 require 'yaml'
 require 'tty-link'
+require 'pastel'
 
 class ActionItem
     attr_accessor :id, :action, :category, :priority, :sub_array, :todolist, :actions_created
