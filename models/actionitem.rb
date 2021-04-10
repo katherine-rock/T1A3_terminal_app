@@ -77,7 +77,7 @@ class ActionItem
                 puts "Please enter the updated action item:"
                 update_action = gets.strip
                 puts "Please enter the updated category:"
-                update_category = gets.strip
+                update_category = gets.strip.downcase
                 puts "Please enter the updated priority:"
                 update_priority = gets.strip
                     sub_array.replace([targetID,update_action,update_category,update_priority])
