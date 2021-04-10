@@ -21,5 +21,8 @@ def help
     puts 
     puts "For more detailed information about this app"
     puts TTY::Link.link_to("Please visit", "https://github.com/katherine-rock/T1A3_terminal_app".cyan.underline)
+    puts 
+    puts "If you have an issue to report, please visit the GitHub page for this app"
+    puts TTY::Link.link_to("Report Issue:", "https://github.com/katherine-rock/T1A3_terminal_app/issues".cyan.underline)
     puts "  ---"
 end
