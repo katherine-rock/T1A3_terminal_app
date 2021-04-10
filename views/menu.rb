@@ -9,5 +9,5 @@ def menu
     puts "-" + pastel.bold("Help")
     puts "-" + pastel.bold("Quit")
     puts
-    puts "Enter your choice:".cyan
+    puts "Please enter your choice:".cyan
 end

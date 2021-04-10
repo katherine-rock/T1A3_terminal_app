@@ -16,7 +16,6 @@ class ItemList
             rescue
                 []
             end
-
     end
 
     def to_s

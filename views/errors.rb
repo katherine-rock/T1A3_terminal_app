@@ -1,11 +1,5 @@
 module Errors
 
-    def Errors.error_unavailable
-        puts
-        puts "Sorry, that function is not available yet. Please choose another option.".yellow
-        puts
-    end
-
     def Errors.error_invalid
         puts
         puts "Sorry, that response is not valid. Please try again.".red
@@ -18,9 +12,22 @@ module Errors
         puts
     end
 
-    def Errors.test
-        3.times {print "Testing... "}
+    def Errors.no_active_items
+        puts
+        puts "There are no current action items.".yellow 
+        puts
+    end
+
+    def Errors.no_match_category
+        puts
+        puts "Sorry. There are no action items that match that category. Please try again.".yellow
         puts 
+    end
+
+    def Errors.id_not_found
+        puts
+        puts "Sorry. There are no action items that match that ID number. Please try again.".yellow
+        puts
     end
 
     def Errors.major

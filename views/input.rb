@@ -1,4 +1,3 @@
-#this is the original
 def input
     puts
     puts "What is the action?"
@@ -13,28 +12,3 @@ def input
     puts item
     puts 
 end
-
-#this is the update
-def input_action
-    puts
-    puts "What is the action? "
-    gets.strip.downcase
-    return 
-end
-
-def input_category
-    puts "What is the category? (optional) "
-    gets.strip.downcase
-    return
-end
-    
-def input_priority
-    puts "What is the priority? (optional - low, medium or high) "
-    gets.strip.downcase
-    return 
-end
-
-def invalid_input_ID
-    puts "That action item is not available. Please check the action item ID and try again."
-end
-
