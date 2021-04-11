@@ -115,11 +115,17 @@ The following diagram outlines the control flow of the ‘Things To Do’ app.
 
 ## Implementation Plan ##
 
-Design and implementation of the ‘Things To Do’ app was managed through Trello. The link to the live Trello board is available at:
+Design and implementation of the ‘Things To Do’ app was managed through Trello. The the live Trello board is available at:
 
 https://trello.com/b/Dbg1mpLT/terminal-app  
 
-[Also include screenshots from Trello]
+Screenshots from initial Trello board at project initiation. 
+![trello board screenshot](docs/screenshot_trello_prep_01.png)
+![trello board screenshot](docs/screenshot_trello_prep_02.png)
+
+Screenshots from latest Trello board at time of assignment submission. 
+![trello board screenshot](docs/screenshot_trello_final_01.png)
+![trello board screenshot](docs/screenshot_trello_final_01.png)
 
 ## Help and Installation Instructions ##
 
@@ -130,6 +136,7 @@ To check if you have Ruby, go to your terminal and type:
 
 If you already have Ruby installed, you will get a message to tell you which version you have. 
 If you do not have Ruby installed, please visit the following link to install it:
+
 https://www.ruby-lang.org/en/documentation/installation/ 
 
 ### 2. Download the app ###
@@ -165,9 +172,9 @@ In your terminal, type the following:
 
 ```./run_todolist.sh```
 
-If this does not work, you can try to include the file path along with the name of the app. For example, if you have saved the app on your desktop you would need to type something in the format:
+If you find the terminal opens a new window and then immediately closes it, or it opens to a blank screen and nothing happens, it may be that your terminal is set up to run Ruby files automatically. If this is the case, please try the following command in your terminal:
 
-```C:\Users\marvin\desktop\T1A3_terminal_app-main\run_todolist.sh```
+```ruby todolist.rb```
 
 ### How to Use the App ###
 Please refer to the section User Interaction above for an explanation of how to use the app. This information is also available from the in-app help screen which can be accessed from the main menu by entering ‘h’ or ‘help’.
@@ -185,14 +192,15 @@ All these gems should be downloaded and installed automatically when you follow 
 The app requires Ruby to run. Please refer to step 1 of the installation instructions above. 
 
 ### Report an Issue ###
-To log an issue with the ‘Things To Do’ app, please visit: 
+To log an issue with the ‘Things To Do’ app, please visit:
+
 https://github.com/katherine-rock/T1A3_terminal_app/issues 
 
 
 ## References ##
 
 Kalbarczyk, M., 2016. Ruby gem: colorize, v0.8.1. [Online] 
-Available at: rubygems.org/gems/colorize/versions/0.8.1
+Available at: https://rubygems.org/gems/colorize/versions/0.8.1 
 [Accessed 06 Apr 2021].
 
 Murach, P., 2020. GitHub: pastel (Ruby Gem). [Online] 
