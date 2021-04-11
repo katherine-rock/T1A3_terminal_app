@@ -19,10 +19,11 @@ def help
     # Quit
     puts "  Enter " + pastel.green("Q") + " or " + pastel.green("quit") + " to exit the program"
     puts 
-    puts "For more detailed information about this app"
-    puts TTY::Link.link_to("Please visit", "https://github.com/katherine-rock/T1A3_terminal_app".cyan.underline)
+    puts TTY::Link.link_to("Please click here to see more detailed information about this app on GitHub".cyan, "https://github.com/katherine-rock/T1A3_terminal_app")
+    puts "Or you can visit https://github.com/katherine-rock/T1A3_terminal_app"
     puts 
-    puts "If you have an issue to report, please visit the GitHub page for this app "
-    puts TTY::Link.link_to("Report Issue" , "https://github.com/katherine-rock/T1A3_terminal_app/issues".cyan.underline)
+    puts TTY::Link.link_to("Please click here if you have an issue to report".cyan , "https://github.com/katherine-rock/T1A3_terminal_app/issues")
+    puts "Or you can visit https://github.com/katherine-rock/T1A3_terminal_app/issues"
+
     puts "  ---"
 end
